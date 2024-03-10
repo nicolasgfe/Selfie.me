@@ -4,4 +4,4 @@
 #### Aplicação Web De comércio de imagens ####
 
 Modelagem Banco de dados
-![alt text](ModelBD.png)
+![alt text](ModelBDv2.png)
