@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Plano } from './entity';
+import { PlanoModule } from './module';
 
 @Module({
   imports: [
@@ -10,10 +12,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'nicolasg.fernandes',
       password: 'postgres',
       database: 'selfime',
-      entities: [],
-      migrations: [],
+      entities: [Plano],
       synchronize: true,
     }),
+    PlanoModule
   ],
 })
 export class AppModule {}
