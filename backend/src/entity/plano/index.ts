@@ -9,9 +9,6 @@ export class Plano {
   nome: string;
 
   @Column()
-  lastName: string;
-
-  @Column()
   valor: number;
 
   @Column()

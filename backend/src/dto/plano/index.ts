@@ -1,12 +1,12 @@
-import { IsNotEmpty, IsEmail } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class CreatePlanoDto {
   @IsNotEmpty()
   nome: string;
 
-  @IsEmail()
-  valor: string;
+  @IsNotEmpty()
+  valor: number;
 
   @IsNotEmpty()
-  validade: string;
+  validade: Date;
 }
