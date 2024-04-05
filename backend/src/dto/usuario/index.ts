@@ -4,6 +4,7 @@ export class CreateUsuarioDto {
   @IsNotEmpty()
   nome: string;
 
+  @IsNotEmpty()
   sobrenome: string;
 
   @IsNotEmpty()
