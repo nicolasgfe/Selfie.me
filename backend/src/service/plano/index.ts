@@ -11,14 +11,6 @@ export class PlanoService {
     return this.planosRepository.findAll();
   }
 
-  // async findById(id: number): Promise<Plano> {
-  //   const user = await this.planosRepository.findById(id);
-  //   if (!user) {
-  //     throw new NotFoundException('User not found');
-  //   }
-  //   return user;
-  // }
-
   async create(createPlanoDto: CreatePlanoDto): Promise<Plano> {
     return this.planosRepository.create(createPlanoDto);
   }
