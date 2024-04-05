@@ -20,7 +20,8 @@ export class UsuarioRepository {
   }
 
   async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
-    const usuario = this.usuarioRepository.create(createUsuarioDto);
+    const usuarioDto = { ...createUsuarioDto, criadoEm: new Date(), atualizadoEm: new Date(), status: true }
+    const usuario = this.usuarioRepository.create(usuarioDto);
     return this.usuarioRepository.save(usuario);
   }
 }
