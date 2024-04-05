@@ -1,16 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Plano {
+export class Empresa {
   @PrimaryGeneratedColumn()
-  id_plano: number;
+  id_empresa: number;
 
   @Column()
   nome: string;
 
   @Column()
-  valor: number;
-
-  @Column()
-  validade: Date;
+  status: Boolean;
 }

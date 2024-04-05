@@ -7,12 +7,12 @@ import { CreatePlanoDto } from 'src/dto';
 export class PlanoController {
   constructor(private readonly planosService: PlanoService) {}
 
-  @Get()
+  @Get("/")
   async findAll(): Promise<Plano[]> {
     return this.planosService.findAll();
   }
 
-  @Post()
+  @Post("/")
   async create(@Body() createPlanoDto: CreatePlanoDto): Promise<Plano> {
     return this.planosService.create(createPlanoDto);
   }

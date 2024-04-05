@@ -1,1 +1,2 @@
-export * from './plano/index';
+export * from './plano';
+export * from './empresa';
