@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateEmpresaDto } from 'src/dto/empresa';
 import { Empresa } from 'src/entity/empresa';
@@ -8,15 +8,21 @@ import { Repository } from 'typeorm';
 export class EmpresaRepository {
   constructor(
     @InjectRepository(Empresa)
-    private readonly pempresaRepository: Repository<Empresa>,
+    private readonly empresaRepository: Repository<Empresa>,
   ) {}
 
   async findAll(): Promise<Empresa[]> {
-    return this.pempresaRepository.find();
+    return this.empresaRepository.find();
+  }
+
+  async findById(id_empresa: number): Promise<Empresa> {
+    return this.empresaRepository.findOneBy({ id_empresa });
   }
 
   async create(createEmpresaDto: CreateEmpresaDto): Promise<Empresa> {
-    const user = this.pempresaRepository.create(createEmpresaDto);
-    return this.pempresaRepository.save(user);
+    const createEmpresa = { ...createEmpresaDto, status: true };
+
+    const user = this.empresaRepository.create(createEmpresa);
+    return this.empresaRepository.save(user);
   }
 }

@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Req } from '@nestjs/common';
+import { Request } from 'express';
 import { CreateEmpresaDto } from 'src/dto';
 import { Empresa } from 'src/entity';
 import { EmpresaService } from 'src/service';
@@ -7,13 +8,20 @@ import { EmpresaService } from 'src/service';
 export class EmpresaController {
   constructor(private readonly empresaService: EmpresaService) {}
 
-  @Get()
+  @Get("/")
   async findAll(): Promise<Empresa[]> {
     return this.empresaService.findAll();
   }
 
-  @Post()
-  async create(@Body() createEmpresaDto: CreateEmpresaDto): Promise<Empresa> {
+  @Get("/:id_empresa")
+  async findById(@Req() request: Request): Promise<Empresa> {
+    const { id_empresa } = request.params;
+    return this.empresaService.findById(Number(id_empresa));
+  }
+
+  @Post("/")
+  async create(@Req() request: Request): Promise<Empresa> {
+    const createEmpresaDto = request.body;
     return this.empresaService.create(createEmpresaDto);
   }
 }

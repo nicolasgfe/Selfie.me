@@ -5,5 +5,5 @@ export class CreateEmpresaDto {
   nome: string;
 
   @IsNotEmpty()
-  status: number;
+  status: boolean;
 }
