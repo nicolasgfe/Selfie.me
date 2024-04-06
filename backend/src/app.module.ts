@@ -1,10 +1,29 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Empresa, Plano, Usuario } from './entity';
+import { EmpresaModule, PlanoModule, UsuarioModule } from './module';
+
+require('dotenv/config');
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: process.env.HOST,
+      port: 5432,
+      username: process.env.APP_USERNAME,
+      password: process.env.PASSWORD,
+      database: process.env.DATABASE,
+      entities: [
+        Plano,
+        Empresa,
+        Usuario
+      ],
+      synchronize: true,
+    }),
+    PlanoModule,
+    EmpresaModule,
+    UsuarioModule
+  ],
 })
 export class AppModule {}

@@ -1,3 +1,3 @@
-export * from './plano';
+export * from './planos';
 export * from './empresa';
 export * from './usuario';

@@ -7,23 +7,25 @@ import { Repository } from "typeorm";
 @Injectable()
 export class UsuarioRepository { 
     constructor(
-        @InjectRepository(Usuario) private repository: Repository<Usuario>,
+        @InjectRepository(Usuario)
+         private readonly usuarioRepository: Repository<Usuario>,
     ) {}
 
     async create(createUsuariodto: CreateUsuariodto) {
-        const entity = this.repository.create(createUsuariodto);
-        await this.repository.save(entity);
+        const usuarioDto = { ...createUsuarioDto, criadoEm: new Date(), atualizadoEm: new Date(), status: true }
+        const usuario = this.usuarioRepository.create(usuarioDto);
+        return this.usuarioRepository.save(usuario);
     }
 
     async remove(id: number): Promise<void> {
-        await this.repository.delete(id);
+        await this.usuarioRepository.delete(id);
     }
 
     async findAll(): Promise<Usuario[]> {
-        return this.repository.find();
+        return this.usuarioRepository.find();
     }
 
-    async findOne(id: number): Promise<Usuario | null> {
-        return this.repository.findOneBy({ id_usuario: id });
+    async findById(id: number): Promise<Usuario> {
+        return this.usuarioRepository.findOneBy({ id_usuario: id });
     }
 }
