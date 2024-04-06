@@ -1,5 +1,6 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Perfil } from '../perfil';
+import { Midia } from '../midia';
 
 @Entity()
 export class Publicacao {
@@ -12,4 +13,7 @@ export class Publicacao {
 
   @Column()
   descricao: string;
+
+  @OneToMany(() => Midia, midia => midia.publicacao)
+  midias: Midia[];
 }
