@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Perfil } from '../perfil';
 
 @Entity()
 export class Usuario {
@@ -22,4 +23,7 @@ export class Usuario {
 
   @Column()
   criadoEm: Date;
+
+  @OneToMany(() => Perfil, perfil => perfil.usuario)
+  perfils: Perfil[];
 }
