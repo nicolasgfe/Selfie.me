@@ -1,21 +1,23 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsEmail, IsString, MinLength, IsBoolean } from 'class-validator';
 
-export class CreateUsuarioDto {
-  @IsNotEmpty()
-  nome: string;
+export class CreateUsuariodto {
 
-  @IsNotEmpty()
-  sobrenome: string;
+    @IsString()
+    nome: string;
 
-  @IsNotEmpty()
-  email: string;
+    @IsString()
+    sobrenome: string;
 
-  @IsNotEmpty()
-  status: boolean;
+    @IsEmail()
+    @IsNotEmpty()
+    email: string;
 
-  @IsNotEmpty()
-  atualizadoEm: Date;
+    @IsBoolean()
+    @IsNotEmpty()
+    status: boolean;
 
-  @IsNotEmpty()
-  criadoEm: Date;
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(8)
+    senha: string;
 }

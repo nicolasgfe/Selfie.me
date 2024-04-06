@@ -1,27 +1,31 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { CreateUsuarioDto } from 'src/dto';
-import { Usuario } from 'src/entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { CreateUsuariodto } from "src/dto/usuario";
+import { Usuario } from "src/entity";
+import { Repository } from "typeorm";
 
 @Injectable()
-export class UsuarioRepository {
-  constructor(
-    @InjectRepository(Usuario)
-    private readonly usuarioRepository: Repository<Usuario>,
-  ) {}
+export class UsuarioRepository { 
+    constructor(
+        @InjectRepository(Usuario)
+         private readonly usuarioRepository: Repository<Usuario>,
+    ) {}
 
-  async findAll(): Promise<Usuario[]> {
-    return this.usuarioRepository.find();
-  }
+    async create(createUsuariodto: CreateUsuariodto) {
+        const usuarioDto = { ...createUsuarioDto, criadoEm: new Date(), atualizadoEm: new Date(), status: true }
+        const usuario = this.usuarioRepository.create(usuarioDto);
+        return this.usuarioRepository.save(usuario);
+    }
 
-  async findById(id_usuario: number): Promise<Usuario> {
-    return this.usuarioRepository.findOneBy({ id_usuario });
-  }
+    async remove(id: number): Promise<void> {
+        await this.usuarioRepository.delete(id);
+    }
 
-  async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
-    const usuarioDto = { ...createUsuarioDto, criadoEm: new Date(), atualizadoEm: new Date(), status: true }
-    const usuario = this.usuarioRepository.create(usuarioDto);
-    return this.usuarioRepository.save(usuario);
-  }
+    async findAll(): Promise<Usuario[]> {
+        return this.usuarioRepository.find();
+    }
+
+    async findById(id: number): Promise<Usuario> {
+        return this.usuarioRepository.findOneBy({ id_usuario: id });
+    }
 }
