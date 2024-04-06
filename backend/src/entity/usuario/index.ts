@@ -1,25 +1,29 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
 @Entity()
 export class Usuario {
-  @PrimaryGeneratedColumn()
-  id_usuario: number;
 
-  @Column()
-  nome: string;
+    @PrimaryGeneratedColumn()
+    id_usuario: number;
 
-  @Column()
-  sobrenome: string;
+    @Column()
+    nome: string;
 
-  @Column()
-  email: string;
+    @Column()
+    sobrenome: string;
 
-  @Column()
-  status: Boolean;
+    @Column()
+    email: string;
 
-  @Column()
-  atualizadoEm: Date;
+    @Column({default: true})
+    status: boolean;
 
-  @Column()
-  criadoEm: Date;
+    @Column()
+    criadoEm: string;
+
+    @Column()
+    atualizadoEm: string;
+
+    @Column()
+    senha: string;
+
 }
