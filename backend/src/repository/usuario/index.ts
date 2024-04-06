@@ -12,7 +12,7 @@ export class UsuarioRepository {
     ) {}
 
     async create(createUsuariodto: CreateUsuariodto) {
-        const usuarioDto = { ...createUsuarioDto, criadoEm: new Date(), atualizadoEm: new Date(), status: true }
+        const usuarioDto = { ...createUsuariodto, criadoEm: new Date(), atualizadoEm: new Date(), status: true }
         const usuario = this.usuarioRepository.create(usuarioDto);
         return this.usuarioRepository.save(usuario);
     }
