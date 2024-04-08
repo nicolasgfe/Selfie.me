@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, Req } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateLicencaDto } from 'src/dto';
 import { Licenca } from 'src/entity';
 import { LicencaRepository } from 'src/repository';
