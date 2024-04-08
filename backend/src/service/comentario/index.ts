@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, Req } from '@nestjs/common';
-import { CreateComentarioDto } from 'src/dto/comentario';
-import { Comentario } from 'src/entity/comentario';
-import { ComentarioRepository } from 'src/repository/comentario';
+import { CreateComentarioDto } from 'src/dto';
+import { Comentario } from 'src/entity';
+import { ComentarioRepository } from 'src/repository';
 
 @Injectable()
 export class ComentarioService {

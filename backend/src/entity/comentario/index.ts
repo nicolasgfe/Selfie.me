@@ -1,4 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToOne } from 'typeorm';
+import { Midia } from '../midia';
+import { Publicacao } from '../publicacao';
 
 @Entity()
 export class Comentario {

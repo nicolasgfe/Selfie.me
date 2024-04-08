@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
-import { Comentario } from 'src/entity/comentario';
-import { ComentarioService } from 'src/service/comentario';
+import { Comentario } from 'src/entity';
+import { ComentarioService } from 'src/service';
 
 @Controller('comentario')
 export class ComentarioController {
