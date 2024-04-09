@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { QueryClientProvider } from 'react-query'
 import './reset.css'
 import { ChakraProvider } from '@chakra-ui/react'
@@ -20,6 +19,4 @@ root.render(
     </QueryClientProvider>
   </React.StrictMode>
 );
-
-reportWebVitals();
 
