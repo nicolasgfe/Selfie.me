@@ -1,8 +1,6 @@
-import React from 'react'
-import { ChakraProvider, GlobalStyle, ThemeProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider, GlobalStyle, theme } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './routes/Router';
-import { defaultTheme } from './theme/theme';
 
 function App() {
   return (
@@ -10,12 +8,8 @@ function App() {
       <BrowserRouter>
         <Router />
       </BrowserRouter>
-
       <GlobalStyle />
-
     </ChakraProvider>
-
-
   );
 }
 
