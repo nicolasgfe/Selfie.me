@@ -1,20 +1,21 @@
-import { Routes, BrowserRouter, Route } from "react-router-dom"
-import Product from "./pages/product/product"
-import Home from "./pages/home/home"
-import Liked from "./pages/liked/liked"
 
+import React from 'react'
+import { GlobalStyle, ThemeProvider } from '@chakra-ui/react';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './routes/Router';
+import { defaultTheme } from './theme/theme';
 
+function App() {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router/>
+      </BrowserRouter>
 
-const App = () => {
-  return(
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/product" element={<Product/>}/>
-        <Route path="/liked" element={<Liked/>}/>
-      </Routes>
-    </BrowserRouter>
-  )
+      <GlobalStyle />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
+
