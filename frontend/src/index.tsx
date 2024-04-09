@@ -7,6 +7,7 @@ import './reset.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { queryClient } from './services/queryClient';
 
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -21,3 +22,4 @@ root.render(
 );
 
 reportWebVitals();
+
