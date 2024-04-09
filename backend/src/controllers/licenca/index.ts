@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
 import { Licenca } from 'src/entity';
-import { LicencaService } from 'src/service/licenca';
+import { LicencaService } from 'src/service';
 
 @Controller('licenca')
 export class LicencaController {

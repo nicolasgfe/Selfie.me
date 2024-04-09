@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { LicencaController } from 'src/controllers/licenca';
+import { LicencaController } from 'src/controllers';
 import { Licenca } from 'src/entity';
-import { LicencaRepository } from 'src/repository/licenca';
-import { LicencaService } from 'src/service/licenca';
-
+import { LicencaRepository } from 'src/repository';
+import { LicencaService } from 'src/service';
 @Module({
     imports: [TypeOrmModule.forFeature([Licenca])],
     controllers: [LicencaController],
