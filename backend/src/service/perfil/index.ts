@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { CreatePerfilDto } from "src/dto/perfil";
 import { Perfil } from "src/entity/perfil";
-import { PerfilRepository } from "src/repository/perfil";
+import { PerfilRepository } from "src/repository";
 
 @Injectable()
 export class PerfilService {

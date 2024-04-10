@@ -1,12 +1,12 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { CreateUsuarioEmpresaDto } from "src/dto";
 import { UsuarioEmpresa } from "src/entity";
-import { usuarioEmpresaRepository } from "src/repository";
+import { UsuarioEmpresaRepository } from "src/repository";
 
 @Injectable()
 export class UsuarioEmpresaService {
   constructor(
-    private readonly usuarioEmpresaRepository: usuarioEmpresaRepository
+    private readonly usuarioEmpresaRepository: UsuarioEmpresaRepository
   ) {}
 
   async create(createUsuarioEmpresaDto: CreateUsuarioEmpresaDto): Promise<UsuarioEmpresa> {
