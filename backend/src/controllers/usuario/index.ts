@@ -3,12 +3,12 @@ import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/s
 import { Request } from 'express';
 import { CreateUsuariodto } from 'src/dto';
 import { Usuario } from 'src/entity';
-import { UsuarioService } from 'src/service';
+import { UsuarioRepository } from 'src/repository';
 
 @Controller('usuario')
 @ApiTags('Plano')
 export class UsuarioController {
-  constructor(private readonly usuarioService: UsuarioService) {}
+  constructor(private readonly repository: UsuarioRepository) {}
 
   @Get("/")
   @ApiResponse({ status: 200, description: 'Consulta realizada com sucesso.' })
@@ -33,4 +33,3 @@ export class UsuarioController {
     return this.usuarioService.create(createUsuarioDto);
   }
 }
-
