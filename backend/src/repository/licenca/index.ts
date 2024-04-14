@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateLicencaDto } from 'src/dto/licenca';
+import { CreateLicencaDto } from 'src/dto';
 import { Licenca } from 'src/entity';
 import { Repository } from 'typeorm';
 

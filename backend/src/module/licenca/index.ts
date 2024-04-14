@@ -4,6 +4,7 @@ import { LicencaController } from 'src/controllers';
 import { Licenca } from 'src/entity';
 import { LicencaRepository } from 'src/repository';
 import { LicencaService } from 'src/service';
+
 @Module({
     imports: [TypeOrmModule.forFeature([Licenca])],
     controllers: [LicencaController],
