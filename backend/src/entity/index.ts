@@ -5,3 +5,4 @@ export * from './perfil';
 export * from './publicacao'
 export * from './midia';
 export * from './licenca';
+export * from './comentario';
