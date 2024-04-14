@@ -1,16 +1,16 @@
-import { Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, JoinColumn, OneToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Usuario } from '../usuario';
 import { Publicacao } from '../publicacao';
 
 @Entity()
 export class Perfil {
-  @PrimaryGeneratedColumn()
-  id_perfil: number;
+    @PrimaryGeneratedColumn()
+    id_perfil: number;
+    
+    @Column()
+    id_usuario: number;
 
-  @ManyToOne(() => Usuario, usuario => usuario.perfils)
-  @JoinColumn({ name: "id_usuario" })
-  usuario: Usuario;
-
-  @OneToMany(() => Publicacao, publicacao => publicacao.perfil)
-  publicacoes: Publicacao[];
+    @OneToOne(() => Perfil)
+    @JoinColumn({ name: 'id_usuario' })
+    usuario: Usuario
 }
