@@ -1,14 +1,14 @@
 import { Controller, Get, Post, Req } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
-import { CreateUsuariodto } from 'src/dto';
+import { CreateUsuarioDto } from 'src/dto';
 import { Usuario } from 'src/entity';
-import { UsuarioRepository } from 'src/repository';
+import { UsuarioService } from 'src/service';
 
 @Controller('usuario')
 @ApiTags('Plano')
 export class UsuarioController {
-  constructor(private readonly repository: UsuarioRepository) {}
+  constructor(private readonly usuarioService: UsuarioService) {}
 
   @Get("/")
   @ApiResponse({ status: 200, description: 'Consulta realizada com sucesso.' })
@@ -27,7 +27,7 @@ export class UsuarioController {
 
   @Post("/")
   @ApiOperation({ summary: 'Criar novo usuario', description: 'Criação de novo usuario com base nos dados fornecidos.' })
-  @ApiBody({ type: CreateUsuariodto })
+  @ApiBody({ type: CreateUsuarioDto })
   async create(@Req() request: Request): Promise<Usuario> {
     const createUsuarioDto = request.body;
     return this.usuarioService.create(createUsuarioDto);

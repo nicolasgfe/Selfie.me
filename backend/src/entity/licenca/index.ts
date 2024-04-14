@@ -1,21 +1,27 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  OneToMany
+} from 'typeorm';
 import { Perfil } from '../perfil';
 
 @Entity()
 export class Licenca {
-    @PrimaryGeneratedColumn()
-    id_licenca: number;
+  @PrimaryGeneratedColumn()
+  id_licenca: number;
 
-    @Column()
-    validade: Date;
+  @Column()
+  validade: Date;
 
-    @Column()
-    idPerfil: number;
+  @Column()
+  idPerfil: number;
 
-    @Column()
-    todosAdquiridos: boolean;
+  @Column()
+  todosAdquiridos: boolean;
 
-    @OneToOne(() => Licenca, licenca => licenca.perfil)
-    @JoinColumn({name: 'idPerfil'})
-    perfil: Perfil;
+  @OneToMany(() => Perfil, perfil => perfil.licencas)
+  @JoinColumn({ name: 'idPerfil' })
+  perfil: Perfil;
 }

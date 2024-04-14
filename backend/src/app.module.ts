@@ -1,18 +1,20 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Comentario,
-  Empresa, Licenca,
-  Midia,
+import {
+  Comentario,
+  Empresa,
   Licenca,
+  Midia,
   Perfil,
   Plano,
   Publicacao,
   Usuario
 } from './entity';
-import { ComentarioModule,
-  EmpresaModule, LicencaModule,
-  MidiaModule,
+import {
+  ComentarioModule,
+  EmpresaModule,
   LicencaModule,
+  MidiaModule,
   PerfilModule,
   PlanoModule,
   PublicacaoModule,
@@ -38,7 +40,7 @@ require('dotenv/config');
         Comentario,
         Licenca,
         Publicacao,
-        Midia,,
+        Midia,
         Licenca
       ],
       synchronize: true,
@@ -48,10 +50,9 @@ require('dotenv/config');
     UsuarioModule,
     PerfilModule,
     ComentarioModule,
-    LicencaModule
+    LicencaModule,
     PublicacaoModule,
     MidiaModule,
-    LicencaModule
   ],
 })
 export class AppModule {}
