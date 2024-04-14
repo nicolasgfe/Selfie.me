@@ -1,8 +1,14 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Empresa, Midia, Perfil, Plano, Publicacao, Usuario } from './entity';
-import { EmpresaModule, PerfilModule, PlanoModule, PublicacaoModule, UsuarioModule } from './module';
-import { MidiaModule } from './module';
+import {
+  EmpresaModule,
+  MidiaModule,
+  PerfilModule,
+  PlanoModule,
+  PublicacaoModule,
+  UsuarioModule
+} from './module';
 
 require('dotenv/config');
 

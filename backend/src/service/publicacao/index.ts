@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreatePublicacaoDto } from 'src/dto';
 import { Publicacao } from 'src/entity';
-import { PublicacaoRepository } from 'src/repository/publicacao';
+import { PublicacaoRepository } from 'src/repository';
 
 @Injectable()
 export class PublicacaoService {

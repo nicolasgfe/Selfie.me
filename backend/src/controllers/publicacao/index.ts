@@ -1,7 +1,7 @@
 import { Controller, Delete, Get, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
 import { Publicacao } from 'src/entity';
-import { PublicacaoService } from 'src/service/publicacao';
+import { PublicacaoService } from 'src/service';
 
 @Controller('publicacao')
 export class PublicacaoController {
