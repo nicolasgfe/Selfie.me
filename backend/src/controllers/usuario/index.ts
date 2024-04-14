@@ -1,26 +1,34 @@
-import { Controller, Get, Post, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Body, Controller, Delete, Get, HttpStatus, Post, Req, Res } from '@nestjs/common';
+import { CreateUsuarioDto } from 'src/dto';
 import { Usuario } from 'src/entity';
-import { UsuarioService } from 'src/service';
+import { UsuarioRepository } from 'src/repository';
 
 @Controller('usuario')
 export class UsuarioController {
-  constructor(private readonly usuarioService: UsuarioService) {}
+  constructor(private readonly repository: UsuarioRepository) {}
 
-  @Get("/")
-  async findAll(): Promise<Usuario[]> {
-    return this.usuarioService.findAll();
+  @Get('/')
+  async findAll(@Res() res) {
+    const usuarios = await this.repository.findAll();
+    return res.status(HttpStatus.OK).send(usuarios);
   }
 
-  @Get("/:id_usuario")
-  async findById(@Req() request: Request): Promise<Usuario> {
-    const { id_usuario } = request.params;
-    return this.usuarioService.findById(Number(id_usuario));
+  @Post('/')
+  async create(@Res() res, @Body() createUsuariodto: CreateUsuarioDto): Promise<Usuario> {
+    const usuario = await this.repository.create(createUsuariodto);
+    return res.status(HttpStatus.CREATED).send(usuario);
   }
 
-  @Post("/")
-  async create(@Req() request: Request): Promise<Usuario> {
-    const createUsuarioDto = request.body;
-    return this.usuarioService.create(createUsuarioDto);
+  @Delete('/')
+  async remove(@Res() res, @Body() id: number) {
+    await this.repository.remove(id);
+    return res.status(HttpStatus.OK).send();
   }
+
+  @Get('/:id_empresa')
+  async findOne(@Req() id_empresa: number, @Res() res) {
+    const usuario = await this.repository.findById(id_empresa);
+    return res.status(HttpStatus.OK).send(usuario);
+  }
+
 }
