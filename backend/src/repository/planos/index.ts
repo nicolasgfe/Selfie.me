@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Plano } from 'src/entity';
@@ -13,6 +13,12 @@ export class PlanosRepository {
 
   async findAll(): Promise<Plano[]> {
     return this.planoRepository.find();
+  }
+
+  async findById(id_plano: number): Promise<Plano> {
+    return this.planoRepository.findOne({
+      where: { id_plano: id_plano }
+    });
   }
 
   async create(createPlanoDto: CreatePlanoDto): Promise<Plano> {
