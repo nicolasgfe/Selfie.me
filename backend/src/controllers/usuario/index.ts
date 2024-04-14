@@ -1,34 +1,35 @@
-import { Body, Controller, Delete, Get, HttpStatus, Post, Req, Res } from '@nestjs/common';
-import { CreateUsuarioDto } from 'src/dto';
+import { Controller, Get, Post, Req } from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Request } from 'express';
+import { CreateUsuariodto } from 'src/dto';
 import { Usuario } from 'src/entity';
 import { UsuarioRepository } from 'src/repository';
 
 @Controller('usuario')
+@ApiTags('Plano')
 export class UsuarioController {
   constructor(private readonly repository: UsuarioRepository) {}
 
-  @Get('/')
-  async findAll(@Res() res) {
-    const usuarios = await this.repository.findAll();
-    return res.status(HttpStatus.OK).send(usuarios);
+  @Get("/")
+  @ApiResponse({ status: 200, description: 'Consulta realizada com sucesso.' })
+  async findAll(): Promise<Usuario[]> {
+    return this.usuarioService.findAll();
   }
 
-  @Post('/')
-  async create(@Res() res, @Body() createUsuariodto: CreateUsuarioDto): Promise<Usuario> {
-    const usuario = await this.repository.create(createUsuariodto);
-    return res.status(HttpStatus.CREATED).send(usuario);
+  @Get("/:id_usuario")
+  @ApiParam({ name: 'id_usuario', description: 'ID do usuario a ser recuperada' })
+  @ApiResponse({ status: 200, description: 'Consulta realizada com sucesso.' })
+  @ApiResponse({ status: 404, description: 'Usuario não encontrado.' })
+  async findById(@Req() request: Request): Promise<Usuario> {
+    const { id_usuario } = request.params;
+    return this.usuarioService.findById(Number(id_usuario));
   }
 
-  @Delete('/')
-  async remove(@Res() res, @Body() id: number) {
-    await this.repository.remove(id);
-    return res.status(HttpStatus.OK).send();
+  @Post("/")
+  @ApiOperation({ summary: 'Criar novo usuario', description: 'Criação de novo usuario com base nos dados fornecidos.' })
+  @ApiBody({ type: CreateUsuariodto })
+  async create(@Req() request: Request): Promise<Usuario> {
+    const createUsuarioDto = request.body;
+    return this.usuarioService.create(createUsuarioDto);
   }
-
-  @Get('/:id_empresa')
-  async findOne(@Req() id_empresa: number, @Res() res) {
-    const usuario = await this.repository.findById(id_empresa);
-    return res.status(HttpStatus.OK).send(usuario);
-  }
-
 }
