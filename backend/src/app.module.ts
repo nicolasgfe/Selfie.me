@@ -1,7 +1,23 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Empresa, Perfil, Plano, Usuario } from './entity';
-import { EmpresaModule, PerfilModule, PlanoModule, UsuarioModule } from './module';
+import { Comentario,
+  Empresa, Licenca,
+  Midia,
+  Licenca,
+  Perfil,
+  Plano,
+  Publicacao,
+  Usuario
+} from './entity';
+import { ComentarioModule,
+  EmpresaModule, LicencaModule,
+  MidiaModule,
+  LicencaModule,
+  PerfilModule,
+  PlanoModule,
+  PublicacaoModule,
+  UsuarioModule
+} from './module';
 
 require('dotenv/config');
 
@@ -9,16 +25,21 @@ require('dotenv/config');
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.HOST,
+      host: process.env.DB_HOST,
       port: 5432,
-      username: process.env.APP_USERNAME,
-      password: process.env.PASSWORD,
-      database: process.env.DATABASE,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       entities: [
         Plano,
         Empresa,
         Usuario,
-        Perfil
+        Perfil,
+        Comentario,
+        Licenca,
+        Publicacao,
+        Midia,,
+        Licenca
       ],
       synchronize: true,
     }),
@@ -26,6 +47,11 @@ require('dotenv/config');
     EmpresaModule,
     UsuarioModule,
     PerfilModule,
+    ComentarioModule,
+    LicencaModule
+    PublicacaoModule,
+    MidiaModule,
+    LicencaModule
   ],
 })
 export class AppModule {}

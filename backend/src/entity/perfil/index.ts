@@ -1,5 +1,6 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import {Column, Entity, JoinColumn, OneToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Usuario } from '../usuario';
+import { Publicacao } from '../publicacao';
 
 @Entity()
 export class Perfil {

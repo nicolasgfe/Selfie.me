@@ -3,3 +3,7 @@ export * from './empresa';
 export * from './usuario';
 export * from './perfil';
 export * from './usuarioEmpresa';
+export * from './publicacao'
+export * from './midia';
+export * from './licenca';
+export * from './comentario';
