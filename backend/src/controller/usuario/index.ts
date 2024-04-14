@@ -1,4 +1,4 @@
-import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Post, Req, Res } from '@nestjs/common';
 import { CreateUsuarioDto } from 'src/dto';
 import { Usuario } from 'src/entity';
 import { UsuarioRepository } from 'src/repository';
@@ -7,27 +7,27 @@ import { UsuarioRepository } from 'src/repository';
 export class UsuarioController {
     constructor(private readonly repository: UsuarioRepository) {}
 
-    @Post('/create')
+    @Post('/')
     async create(@Res() res, @Body() createUsuariodto: CreateUsuarioDto): Promise<Usuario> {
         await this.repository.create(createUsuariodto);
         return res.status(HttpStatus.CREATED).send();
     }
 
-    @Post('/remove')
+    @Delete('/')
     async remove(@Res() res, @Body() id: number) {
         await this.repository.remove(id);
         return res.status(HttpStatus.OK).send();
     }
 
-    @Post('/findAll')
+    @Get('/')
     async findAll(@Res() res) {
         const usuarios = await this.repository.findAll();
         return res.status(HttpStatus.OK).send(usuarios);
     }
 
-    @Post('/findOne')
-    async findOne(@Res() res, @Body() id: number) {
-        const usuario = await this.repository.findById(id);
+    @Get('/:id_empresa')
+    async findOne(@Req() id_empresa: number, @Res() res) {
+        const usuario = await this.repository.findById(id_empresa);
         return res.status(HttpStatus.OK).send(usuario);
     }
 
