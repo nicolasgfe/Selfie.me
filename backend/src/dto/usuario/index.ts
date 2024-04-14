@@ -1,7 +1,6 @@
 import { IsNotEmpty, IsEmail, IsString, MinLength, IsBoolean } from 'class-validator';
 
-export class CreateUsuariodto {
-
+export class CreateUsuarioDto {
     @IsString()
     nome: string;
 
@@ -11,10 +10,6 @@ export class CreateUsuariodto {
     @IsEmail()
     @IsNotEmpty()
     email: string;
-
-    @IsBoolean()
-    @IsNotEmpty()
-    status: boolean;
 
     @IsString()
     @IsNotEmpty()

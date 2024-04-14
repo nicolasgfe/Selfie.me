@@ -1,7 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class Usuario {
-
     @PrimaryGeneratedColumn()
     id_usuario: number;
 
@@ -18,12 +17,11 @@ export class Usuario {
     status: boolean;
 
     @Column()
-    criadoEm: string;
+    criadoEm: Date;
 
     @Column()
-    atualizadoEm: string;
+    atualizadoEm: Date;
 
     @Column()
     senha: string;
-
 }

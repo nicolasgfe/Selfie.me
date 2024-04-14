@@ -1,15 +1,14 @@
 import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
-import { CreateUsuariodto } from 'src/dto/usuario';
+import { CreateUsuarioDto } from 'src/dto';
 import { Usuario } from 'src/entity';
-import { UsuarioRepository } from 'src/repository/usuario';
+import { UsuarioRepository } from 'src/repository';
 
 @Controller('usuario')
 export class UsuarioController {
-
     constructor(private readonly repository: UsuarioRepository) {}
 
     @Post('/create')
-    async create(@Res() res, @Body() createUsuariodto: CreateUsuariodto): Promise<Usuario> {
+    async create(@Res() res, @Body() createUsuariodto: CreateUsuarioDto): Promise<Usuario> {
         await this.repository.create(createUsuariodto);
         return res.status(HttpStatus.CREATED).send();
     }
@@ -28,7 +27,7 @@ export class UsuarioController {
 
     @Post('/findOne')
     async findOne(@Res() res, @Body() id: number) {
-        const usuario = await this.repository.findOne(id);
+        const usuario = await this.repository.findById(id);
         return res.status(HttpStatus.OK).send(usuario);
     }
 
