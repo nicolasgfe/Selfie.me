@@ -1,7 +1,7 @@
 import { Container, Header, Info, Logo, LogoDiv, TagDiv } from "./styles"
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/icons/logo.svg'
 import { Button, HStack, Select, Tag, TagCloseButton, TagLabel } from "@chakra-ui/react"
-import { useState, ChangeEvent } from "react"
+import { useState, ChangeEvent } from "react";
 
 
 export const Home = () => {

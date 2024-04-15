@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import backgorund from '../../assets/homebackground.jpg'
+import { homebackground } from "../../assets";
 
 export const Container = styled.div`
     width: 100vw;
@@ -13,7 +13,7 @@ export const Header = styled.div`
     width: 100vw;
     height: 350px;
     display: flex;
-    background-image: url(${backgorund});
+    background-image: url(${homebackground});
     background-size: cover;
     background-position: center;
     position: relative; 

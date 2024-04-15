@@ -1,5 +1,5 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { logopreta, user, hearth } from "../../assets";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { logopreta, user, hearth, cart, cartshop, download, OceanRocks } from "../../assets";
 
 const Product = () => {
     return(
@@ -7,12 +7,18 @@ const Product = () => {
             <Box 
                 display={'flex'} 
                 alignItems={'center'} 
-                flexDirection={'inherit'} 
-                top={'50px'} 
+                flexDirection={'row'} 
+                mt={'50px'} 
                 position="relative" 
-                width="100%" 
-                height="100px">
+                w={"1700px"} 
+                h={"100px"}
+                borderStyle="solid"
+                borderColor="blue.500" 
+                borderWidth="2px" 
+                borderRadius={'30px'}
+            >
                 <Image 
+                    ml={'auto'}
                     position={'absolute'} 
                     left={'20px'} 
                     src={logopreta} 
@@ -23,7 +29,7 @@ const Product = () => {
                     w={'40'}
                     h={'20'}
                     borderStyle="solid"
-                    borderColor="blue.500" 
+                    borderColor="red" 
                     borderWidth="2px" 
                     borderRadius={'30px'}
                     right={'40px'}
@@ -38,21 +44,17 @@ const Product = () => {
             <Box
                 top={'150px'} 
                 position="relative" 
-                w={'1200px'}
+                w={'1600px'}
                 h={'100vh'}
-                borderStyle="solid"
-                borderColor="blue.500"
-                borderWidth="2px"
             >
                 <Flex>
                     <Box
                         display={'flex'}
-                        borderStyle="solid"
-                        borderColor="blue.500"
-                        borderWidth="2px"
                         w={'300px'}
                         h={'10vh'}
                         alignItems={'center'}
+                        ml={'auto'}
+                        mr={'auto'}
                     >
                         <Image src={user} h={'80px'}/>
                         <Box 
@@ -65,29 +67,137 @@ const Product = () => {
                         </Box>
                     </Box>
                     <Image
+                        src={OceanRocks}
                         w={'40vw'}
-                        h={'50vh'}
-                        borderStyle="solid"
-                        borderColor="blue.500"
-                        borderWidth="2px"
+                        h={'80vh'}
+                        ml={'auto'}
+                        mr={'auto'}
                         shadow={'10px 5px 20px #494949'}
                     />
-                    <Box
+                    <Flex
                         marginTop={'100px'}
                         marginLeft={'5%'}
+                        flexDirection={'column'}
                     >
-                        <Text
-                            w={'200px'}
+                        <Box
+                            display={'flex'}
+                            w={'300px'}
                             h={'80px'}
-                            fontSize="3rem"
+                        >
+                            <Text
+                                ml={'auto'}
+                                mr={'auto'}
+                                textDecoration={'underline'}
+                                fontSize="3.5rem"
+                                whiteSpace={'nowrap'}
+                                color={'#29ABE2'}
+                            >
+                                R$ 499,00
+                            </Text>
+                        </Box>
+                        <Box
+                            display={'flex'}
+                            flexDirection={'row'}
+                            w={'300px'}
+                            h={'80px'}
+                            fontSize="3.5rem"
+                            alignItems={'center'}
+                        >
+                            <Button
+                                w={'230px'}
+                                h={'40px'}
+                                ml={'auto'}
+                                mr={'auto'}
+                                bgColor={'#29ABE2'}
+                                borderRadius={'10px'}
+                                fontSize="1.5rem"
+                                alignContent={'baseline'}
+                                display={'flex'}
+                                > 
+                                <Flex
+                                    ml={'auto'}
+                                    mr={'auto'}
+                                >
+                                    <Image
+                                        src={cart}
+                                        h={'40px'}
+                                        w={'40px'}
+                                    />
+                                    <Text
+                                        ml={'auto'}
+                                        mr={'auto'}
+                                        fontSize="1.5rem"
+                                        whiteSpace={'nowrap'}
+                                        color={'white'}
+                                    >
+                                        Comprar
+                                    </Text>
+                                </Flex>
+                            </Button>
+
+                            <Button
+                                w={'50px'}
+                                h={'40px'}
+                                ml={'auto'}
+                                mr={'auto'}
+                                bgColor={'#29ABE2'}
+                                borderRadius={'10px'}
+                                display={'flex'}
+                            > 
+                                <Image
+                                    src={cartshop}
+                                    ml={'auto'}
+                                    mr={'auto'}
+                                    h={'40px'}
+                                    w={'40px'}
+                                />
+                            </Button>
+
+                        </Box>
+                        
+                        <Box
+                            display={'flex'}
+                            flexDirection={'row'}
+                            w={'300px'}
+                            h={'80px'}
+                            fontSize="3.5rem"
                             whiteSpace={'nowrap'}
-                            borderStyle="solid"
-                            borderColor="blue.500"
-                            borderWidth="2px"
-                            textDecoration={'underline'}
-                        />R$ 499
-                        <Image src={hearth} h={'5vh'}/>
-                    </Box>
+                            alignItems={'center'}
+                        >
+                            <Image src={hearth} h={'5vh'}/>
+                            <Button
+                                w={'230px'}
+                                h={'40px'}
+                                ml={'auto'}
+                                mr={'auto'}
+                                bgColor={'#2bb900'}
+                                borderRadius={'10px'}
+                                fontSize="1.5rem"
+                                display={'flex'}
+                            > 
+                                <Flex
+                                    alignItems={'center'}
+                                >
+                                    <Image
+                                        src={download}
+                                        ml={'auto'}
+                                        mr={'auto'}
+                                        h={'40px'}
+                                        w={'40px'}
+                                    />
+                                    <Text
+                                        ml={'auto'}
+                                        mr={'auto'}
+                                        fontSize="1.5rem"
+                                        whiteSpace={'nowrap'}
+                                        color={'white'}
+                                    >
+                                        Download
+                                    </Text>
+                                </Flex>
+                            </Button>
+                        </Box>                        
+                    </Flex>
                 </Flex>
             </Box>
         </Box>
