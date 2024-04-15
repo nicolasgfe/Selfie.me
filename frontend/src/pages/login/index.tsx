@@ -14,7 +14,7 @@ import {
   FormHelperText,
 } from '@chakra-ui/react';
 
-const Login: React.FC = () => {
+export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -29,7 +29,7 @@ const Login: React.FC = () => {
   const handleLogin = async () => {
     setError('');
     setIsLoading(true);
-    
+
     if (!validateForm()) {
       setError('Por favor, preencha todos os campos.');
       setIsLoading(false);
@@ -39,10 +39,10 @@ const Login: React.FC = () => {
     // Simulação de uma requisição assíncrona de autenticação
     try {
 
-      
+
       // Simulação de sucesso no login após 1 segundo
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       // Se o login for bem-sucedido, você pode redirecionar ou fazer outras ações necessárias
       setIsLoggedIn(true);
     } catch (error) {
@@ -125,5 +125,3 @@ const Login: React.FC = () => {
     </Box>
   );
 };
-
-export default Login;

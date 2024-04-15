@@ -1,36 +1,36 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import { logopreta, user, hearth, cart, cartshop, download, OceanRocks } from "../../assets";
 
-const Product = () => {
+export const Product = () => {
     return(
         <Box display={"flex"} alignItems={'center'} flexDirection={'column'} w={'100vw'} h={'100vh'}>
-            <Box 
-                display={'flex'} 
-                alignItems={'center'} 
-                flexDirection={'row'} 
-                mt={'50px'} 
-                position="relative" 
-                w={"1700px"} 
+            <Box
+                display={'flex'}
+                alignItems={'center'}
+                flexDirection={'row'}
+                mt={'50px'}
+                position="relative"
+                w={"1700px"}
                 h={"100px"}
                 borderStyle="solid"
-                borderColor="blue.500" 
-                borderWidth="2px" 
+                borderColor="blue.500"
+                borderWidth="2px"
                 borderRadius={'30px'}
             >
-                <Image 
+                <Image
                     ml={'auto'}
-                    position={'absolute'} 
-                    left={'20px'} 
-                    src={logopreta} 
+                    position={'absolute'}
+                    left={'20px'}
+                    src={logopreta}
                     w={"200px"}
                     top={'25px'}
                 />
-                <Box 
+                <Box
                     w={'40'}
                     h={'20'}
                     borderStyle="solid"
-                    borderColor="red" 
-                    borderWidth="2px" 
+                    borderColor="red"
+                    borderWidth="2px"
                     borderRadius={'30px'}
                     right={'40px'}
                     position={'absolute'}
@@ -42,8 +42,8 @@ const Product = () => {
                 </Box>
             </Box>
             <Box
-                top={'150px'} 
-                position="relative" 
+                top={'150px'}
+                position="relative"
                 w={'1600px'}
                 h={'100vh'}
             >
@@ -57,7 +57,7 @@ const Product = () => {
                         mr={'auto'}
                     >
                         <Image src={user} h={'80px'}/>
-                        <Box 
+                        <Box
                             display={'flex'}
                             flexDirection={'column'}
                             alignItems={'start'}
@@ -113,7 +113,7 @@ const Product = () => {
                                 fontSize="1.5rem"
                                 alignContent={'baseline'}
                                 display={'flex'}
-                                > 
+                                >
                                 <Flex
                                     ml={'auto'}
                                     mr={'auto'}
@@ -143,7 +143,7 @@ const Product = () => {
                                 bgColor={'#29ABE2'}
                                 borderRadius={'10px'}
                                 display={'flex'}
-                            > 
+                            >
                                 <Image
                                     src={cartshop}
                                     ml={'auto'}
@@ -154,7 +154,7 @@ const Product = () => {
                             </Button>
 
                         </Box>
-                        
+
                         <Box
                             display={'flex'}
                             flexDirection={'row'}
@@ -174,7 +174,7 @@ const Product = () => {
                                 borderRadius={'10px'}
                                 fontSize="1.5rem"
                                 display={'flex'}
-                            > 
+                            >
                                 <Flex
                                     alignItems={'center'}
                                 >
@@ -196,12 +196,10 @@ const Product = () => {
                                     </Text>
                                 </Flex>
                             </Button>
-                        </Box>                        
+                        </Box>
                     </Flex>
                 </Flex>
             </Box>
         </Box>
     )
 }
-
-export default Product;
