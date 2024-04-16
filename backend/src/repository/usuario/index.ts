@@ -1,18 +1,23 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { CreateUsuariodto } from "src/dto/usuario";
+import { CreateUsuarioDto } from "src/dto";
 import { Usuario } from "src/entity";
 import { Repository } from "typeorm";
 
 @Injectable()
-export class UsuarioRepository { 
+export class UsuarioRepository {
     constructor(
         @InjectRepository(Usuario)
-         private readonly usuarioRepository: Repository<Usuario>,
+        private readonly usuarioRepository: Repository<Usuario>,
     ) {}
 
-    async create(createUsuariodto: CreateUsuariodto) {
-        const usuarioDto = { ...createUsuariodto, criadoEm: new Date(), atualizadoEm: new Date(), status: true }
+    async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
+        const usuarioDto = { 
+            ...createUsuarioDto, 
+            criadoEm: new Date(), 
+            atualizadoEm: new Date(), 
+            status: true 
+        };
         const usuario = this.usuarioRepository.create(usuarioDto);
         return this.usuarioRepository.save(usuario);
     }
