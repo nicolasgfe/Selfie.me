@@ -9,6 +9,8 @@ import cartshop from './icons/cartshop.svg'
 
 import homebackground from './images/homebackground.jpg'
 import OceanRocks from './images/OceanRocks.jpg'
+import BgYourCOunt from './images/BgYourCount.jpg'
+import perfilYour from './images/perfilYour.png'
 
 export {
     cart,
@@ -22,4 +24,6 @@ export {
 
     homebackground,
     OceanRocks,
+    BgYourCOunt,
+    perfilYour,
 }
