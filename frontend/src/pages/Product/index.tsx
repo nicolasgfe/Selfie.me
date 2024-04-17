@@ -68,7 +68,7 @@ export const Product = () => {
               w={"1700px"}
               h={"100px"}
           >
-            <Link to={'/'}>
+            <Link to={'/home'}>
               <Image
                 ml={'auto'}
                 position={'absolute'}
