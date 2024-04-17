@@ -4,7 +4,8 @@ import { Home, Login, Product } from "../pages";
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/product" element={<Product />} />
       <Route path="/login" element={<Login />} />
     </Routes>
