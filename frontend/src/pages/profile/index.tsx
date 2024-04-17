@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react"
 import { user } from "../../assets"
+import { Link } from "react-router-dom"
 
 export const Profile = () => {
   return(
@@ -47,9 +48,11 @@ export const Profile = () => {
             whiteSpace={'nowrap'}
             bgColor={'transparent'}
           >
+          <Link to={'/yourcount'}>
             <Text>
               Your Account
             </Text>
+          </Link>
           </Button>
           <Button
             display={'flex'}
@@ -60,9 +63,11 @@ export const Profile = () => {
             whiteSpace={'nowrap'}
             bgColor={'transparent'}
           >
+          <Link to={'/'}>
             <Text>
               Quit
             </Text>
+          </Link>
           </Button>
         </Flex>
       </Flex>
