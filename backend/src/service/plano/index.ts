@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Plano } from 'src/entity';
 import { CreatePlanoDto } from 'src/dto';
 import { PlanosRepository } from 'src/repository';
@@ -11,13 +11,13 @@ export class PlanoService {
     return this.planosRepository.findAll();
   }
 
-  // async findById(id: number): Promise<Plano> {
-  //   const user = await this.planosRepository.findById(id);
-  //   if (!user) {
-  //     throw new NotFoundException('User not found');
-  //   }
-  //   return user;
-  // }
+  async findById(id_plano: number): Promise<Plano> {
+    const plano = await this.planosRepository.findById(id_plano);
+    if (!plano) {
+      throw new NotFoundException(`Plano com ID ${id_plano} não encontrada`);
+    }
+    return plano;
+  }
 
   async create(createPlanoDto: CreatePlanoDto): Promise<Plano> {
     return this.planosRepository.create(createPlanoDto);
