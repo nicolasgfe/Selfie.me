@@ -1,6 +1,7 @@
 import cart from './icons/cart.svg'
 import download from './icons/dowload.svg'
-import hearth from './icons/hearth.svg'
+import heartregular from './icons/heartregular.svg'
+import heartsolid from './icons/heartsolid.svg'
 import logobranca from './icons/logobranca.svg'
 import logopreta from './icons/logopreta.svg'
 import logobrancabordaazul from './icons/logobrancabordaazul.svg'
@@ -28,12 +29,12 @@ export {
     cart,
     cartshop,
     download,
-    hearth,
+    heartsolid,
+    heartregular,
     logobrancabordaazul,
     logopreta,
     logobranca,
     user,
-
     homebackground,
     OceanRocks,
     BgYourCOunt,

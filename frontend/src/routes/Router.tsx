@@ -6,7 +6,8 @@ import { YourCount } from "../pages/YourCount";
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/product" element={<Product />} />
       <Route path="/login" element={<Login />} />
       <Route path="/liked" element={<Liked />} />

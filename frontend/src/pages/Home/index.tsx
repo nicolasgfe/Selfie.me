@@ -2,6 +2,7 @@ import { Container, Header, Info, Logo, LogoDiv, TagDiv } from "./styles"
 import logo from '../../assets/icons/logo.svg'
 import { Button, HStack, Select, Tag, TagCloseButton, TagLabel } from "@chakra-ui/react"
 import { useState, ChangeEvent } from "react";
+import { Profile } from "../profile";
 
 
 export const Home = () => {
@@ -31,6 +32,7 @@ export const Home = () => {
           <LogoDiv>
             <Logo src={logo} alt="Descrição da imagem" />
           </LogoDiv>
+          <Profile/>
 
           <TagDiv>
             <HStack spacing={2}>
@@ -56,9 +58,6 @@ export const Home = () => {
               ))}
             </div>
           </TagDiv>
-
-          <label>Login</label>
-          <label>Icone</label>
         </Info>
       </Header>
     </Container>
