@@ -4,7 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  
   const config = new DocumentBuilder()
     .setTitle('Selfie.me - Unisep')
     .setDescription('Api para aplicação de fotografias <br/>Desenvolvido por alunos do 5º semestre de Analise e Desenvolvimento de Sistemas.')
@@ -13,6 +13,13 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+
+  app.enableCors({
+    origin: true,
+    credentials: true
+  });
+  console.log("CORS habilitado");
+
   await app.listen(8080);
 }
 bootstrap();
