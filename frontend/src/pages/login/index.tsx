@@ -13,7 +13,7 @@ export const Login: React.FC = () => {
   const validateForm = () => {
     return email.length > 0 && password.length > 0;
   };
-
+  
   const handleLogin = async () => {
     setError('');
     setIsLoading(true);
