@@ -1,28 +1,19 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
+import { OceanRocks, homebackground } from "../../assets";
 
 const Liked = () => {
     return(
-        <Box backgroundColor={"#001489"}
-            fontFamily={"mono"}
-            w="100vw" 
-            h="100vh" 
-            display="flex" 
-            alignItems="center" 
-            flexDirection="column">            
-            
-            <Box w="20vw"
-             h="10vh"
-            display="flex"
-            alignItems="center" 
-            flexDirection="revert">
-                
-                <Text color={"#ffffff"}>
-                    Inser your Design here, By Developed Leonardo Hartmann
-                </Text>
+      <Box
+        h={'100vh'}
+        w={'100vw'}
+        bgColor={'#3333ff'}
 
-            </Box>
+      >
+        <Image src="OceanRocks"></Image>
+        <Box>
 
         </Box>
+      </Box>
     )
 }
 
