@@ -29,8 +29,8 @@ require('dotenv/config');
       type: 'postgres',
       host: process.env.DB_HOST,
       port: 5432,
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
+      username: "postgres",
+      password: "idessedi",
       database: process.env.DB_DATABASE,
       entities: [
         Plano,
