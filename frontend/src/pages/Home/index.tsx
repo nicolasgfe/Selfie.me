@@ -9,7 +9,7 @@ import { useAuth } from "../../context/AuthContext";
 
 
 export const Home = () => {
-  const { function1, number1 } = useAuth();
+  const { function1, number } = useAuth();
 
   const images = [
     { src: bixoveio, alt: 'Imagem 1' },
@@ -111,7 +111,7 @@ export const Home = () => {
 
       </Header>
       <Contents>
-        <button type="button" onClick={function1}>Teste {number1}</button>
+        <button type="button" onClick={function1}>Resultado Poc Context: {number}</button>
         <ImageGrid images={images} />
 
       </Contents>

@@ -1,7 +1,7 @@
-import { ReactNode, createContext, useContext } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 
 interface IAuthContext {
-  number1: number;
+  number: number;
   function1: () => void;
 }
 
@@ -20,14 +20,15 @@ const useAuth = () => {
 };
 
 const AuthProvider = ({ children }: IAuthProviderProps): JSX.Element => {
-  const number1 = 1;
+  const [number, setNumber] = useState(0);
 
   const function1 = () => {
-    console.log("Mensagem da function1 do authContext");
-  };
+    console.log("Mensagem da function" + number + " do authContext");
+    setNumber((old) => old + 1);
+  }
 
   return (
-    <AuthContext.Provider value={{ number1, function1 }}>
+    <AuthContext.Provider value={{ number, function1 }}>
       {children}
     </AuthContext.Provider>
   );
