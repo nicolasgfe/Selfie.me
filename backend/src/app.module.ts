@@ -21,6 +21,7 @@ import {
   PublicacaoModule,
   UsuarioModule
 } from './module';
+import { CriarTabelaUsuario1715986183875 } from './database/migrations/1715986183875-CriarTabelaUsuario';
 
 require('dotenv/config');
 
@@ -33,6 +34,8 @@ require('dotenv/config');
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
+      migrations: [CriarTabelaUsuario1715986183875],
+      migrationsTableName: "src/database/migrations",
       entities: [
         Plano,
         Empresa,
@@ -44,7 +47,6 @@ require('dotenv/config');
         Midia,
         Licenca
       ],
-      synchronize: true,
     }),
     EchoModule,
     PlanoModule,
