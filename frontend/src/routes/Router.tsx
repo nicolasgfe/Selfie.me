@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Login, Product } from "../pages";
+import { Home, Login, Product, Sigin } from "../pages";
 import Liked from "../pages/liked/liked";
 import { YourCount } from "../pages/YourCount";
 
@@ -12,6 +12,7 @@ export function Router() {
       <Route path="/login" element={<Login />} />
       <Route path="/liked" element={<Liked />} />
       <Route path="/YourCount" element={<YourCount />} />
+      <Route path="/sigin" element={<Sigin />} />
     </Routes>
   )
 }
