@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { ConflictException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreateUsuarioDto } from "src/dto";
 import { Usuario } from "src/entity";
@@ -12,14 +12,21 @@ export class UsuarioRepository {
     ) {}
 
     async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
-        const usuarioDto = { 
-            ...createUsuarioDto, 
-            criadoEm: new Date(), 
-            atualizadoEm: new Date(), 
-            status: true 
+        const usuarioDto = {
+            ...createUsuarioDto,
+            criadoEm: new Date(),
+            atualizadoEm: new Date(),
+            status: true
         };
-        const usuario = this.usuarioRepository.create(usuarioDto);
-        return this.usuarioRepository.save(usuario);
+        try {
+          const usuario = this.usuarioRepository.create(usuarioDto);
+          return this.usuarioRepository.save(usuario);
+
+        } catch (error) {
+          if (error.code === '23505') { // código de erro de violação de unicidade no PostgreSQL
+            throw new ConflictException('Email already exists');
+          }
+        }
     }
 
     async remove(id: number): Promise<void> {

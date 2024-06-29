@@ -65,7 +65,7 @@ export const Product = () => {
               flexDirection={'row'}
               mt={'50px'}
               position="relative"
-              w={"1700px"}
+              w="full"
               h={"100px"}
           >
             <Link to={'/home'}>
@@ -83,7 +83,7 @@ export const Product = () => {
           <Box
               top={'150px'}
               position="relative"
-              w={'1600px'}
+              w="full"
               h={'100vh'}
           >
               <Flex>

@@ -1,15 +1,15 @@
 import { Container, Contents, Header, Info, Input, Logo, LogoDiv, SearchBarDiv, SelectOnBarDiv, TagDiv } from "./styles"
 import logo from '../../assets/icons/logo.svg'
-import { Box, Divider, HStack, Image, Select, Stack, Tag, TagCloseButton, TagLabel } from "@chakra-ui/react"
+import { Box, Divider, HStack, Select, Stack, Tag, TagCloseButton, TagLabel } from "@chakra-ui/react"
 import { useState, ChangeEvent } from "react";
 import { Profile } from "../profile";
-import { BgYourCOunt, perfilYour, bixoveio, camiao, macaco, murrodospreso, torredebabel, logosonora, logoexpoflor, mia, music, onibus } from "../../assets";
+import { BgYourCOunt, bixoveio, camiao, macaco, murrodospreso, torredebabel, logosonora, logoexpoflor, mia, music, onibus } from "../../assets";
 import ImageGrid from "../YourCount/Interface/ImageGrid";
-
-
+import { useAuth } from "../../context/AuthContext";
 
 
 export const Home = () => {
+  const { function1, number } = useAuth();
 
   const images = [
     { src: bixoveio, alt: 'Imagem 1' },
@@ -111,6 +111,7 @@ export const Home = () => {
 
       </Header>
       <Contents>
+        <button type="button" onClick={function1}>Resultado Poc Context: {number}</button>
         <ImageGrid images={images} />
 
       </Contents>

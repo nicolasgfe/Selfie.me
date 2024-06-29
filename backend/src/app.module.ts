@@ -12,6 +12,7 @@ import {
 } from './entity';
 import {
   ComentarioModule,
+  EchoModule,
   EmpresaModule,
   LicencaModule,
   MidiaModule,
@@ -45,6 +46,7 @@ require('dotenv/config');
       ],
       synchronize: true,
     }),
+    EchoModule,
     PlanoModule,
     EmpresaModule,
     UsuarioModule,
